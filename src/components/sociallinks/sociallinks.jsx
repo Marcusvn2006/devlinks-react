@@ -1,7 +1,10 @@
-import  "./sociallinks.module.css";
+import "./sociallinks.module.css";
 
-const SocialLink = () => {
+const SocialLink = ({ icon, hrf }) => {
   return (
-   <div></div>)
-  }
+    <a href={hrf} target="_blank">
+      <ion-icon name={icon} />
+    </a>
+  );
+};
 export default SocialLink;
