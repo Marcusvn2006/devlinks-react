@@ -11,16 +11,20 @@ import imgDarkMode from "../img/fotodeperfpre.jpeg";
 import imgLightMode from "../img/fotoperfil.jpeg";
 
 const App = () => {
-  const [isLightMode, setILightMode] = useState(false);
+  const [isLightMode, setILightMode] = useState(true);
+const toggleMode =() => {
+    setILightMode((prevMode)=> !prevMode) 
+}
   const imgSrc = isLightMode ? imgLightMode : imgDarkMode;
   const imgAlt = isLightMode ? "Imagem no modo Claro" : "Imagem no modo escuro";
 
   return (
-    <div id="container">
+   <div id="legoBatman" className={isLightMode ? "light":""}>
+   <div id="container">
       <Profile imgSrc={imgSrc} imgAlt={imgAlt}>
         @Mvn
       </Profile>
-      <Switch></Switch>
+      <Switch mode={toggleMode} infoButton={isLightMode}/>
       <div id="links">
         <ul>
           <Links link={"#"}>GitHub</Links>
@@ -38,7 +42,8 @@ const App = () => {
         <Social hrf={"https://twitter.com/Marcusvn014"} icon={"logo-twitter"} />
         <Social hrf={"#"} icon={"logo-youtube"} />
       </div>
-   <Footer link={"#"}>@Mvn</Footer>
+   <Footer link={"#"}> @Mvn</Footer>
+    </div>
     </div>
   );
 };
